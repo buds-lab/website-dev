@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Extracting Data from Cozie Basic · Cozie</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Extracting Data"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Extracting Data from Cozie Basic · Cozie"/><meta property="og:type" content="website"/><meta property="og:url" content="https://buds-lab.github.io/Cozie/"/><meta property="og:description" content="## Extracting Data"/><meta property="og:image" content="https://buds-lab.github.io/Cozie/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://buds-lab.github.io/Cozie/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Cozie/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Cozie/js/scrollSpy.js"></script><link rel="stylesheet" href="/Cozie/css/main.css"/><script src="/Cozie/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Cozie/"><img class="logo" src="/Cozie/img/favicon.ico" alt="Cozie"/><h2 class="headerTitleWithLogo">Cozie</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started with Cozie Basic</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting Started with Cozie Basic<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Cozie/docs/home">Introduction</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/picking-a-fitbit">Picking a Fitbit</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/installing-watchface">Installing and using Cozie Basic</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/Cozie/docs/extracting-data">Extracting Data from Cozie Basic</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/troubleshooting-cozie-basic">Troubleshooting Cozie Basic</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/example-of-experimental-method">Example of an Experimental Methodology</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Creating your own Cozie<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Cozie/docs/app-creation-setup">Creating your own Cozie App</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/installation">Installation and setup</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/intro-fitbit-sdk">Fitbit SDK</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/uploading-to-appstore">Uploading to the AppStore</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/datatransfer-between-phone-and-fitbit">Datatransfer between the phone and the Fitbit</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/interacting-with-gui-elements">Interacting with GUI elements</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/switching-between-screens">Switching between screens</a></li><li class="navListItem"><a class="navItem" href="/Cozie/docs/gs-sending-data-to-cloud">Sending data to the cloud</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Extracting Data from Cozie Basic</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="extracting-data"></a><a href="#extracting-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extracting Data</h2>
+<p>Data can be extracted via our API</p>
+<p><strong>URL Key:</strong> <a href="https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/">https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/</a></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li>experiment-id: The name you set in the cozie settings above (required)</li>
+<li>user-id: The user-id set above (optional, if not included all users are extracted)</li>
+<li>weeks: Weeks of data (optional, default is 2 weeks)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="extracting-data-with-python"></a><a href="#extracting-data-with-python" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extracting Data with Python</h3>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">import</span> requests
+
+payload = {<span class="hljs-string">'experiment-id'</span>: <span class="hljs-string">'test'</span>, <span class="hljs-string">'weeks'</span>: <span class="hljs-string">'30'</span>, <span class="hljs-string">'user-id'</span>: <span class="hljs-string">'test05'</span>}
+response = requests.get(<span class="hljs-string">'https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/'</span>, params = payload)
+
+print(response.content)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extracting-data-with-bash"></a><a href="#extracting-data-with-bash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extracting Data with Bash</h3>
+<pre><code class="hljs css language-bash">$ curl https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/<span class="hljs-built_in">test</span>/request/?experiment-id=<span class="hljs-built_in">test</span>&amp;weeks=3
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extracting-data-with-node-js"></a><a href="#extracting-data-with-node-js" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extracting Data with Node js</h3>
+<p>There are multiple methods to access data. You may use <code>fetch</code> or <code>https</code></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a></p>
+<pre><code class="hljs css language-js">fetch(<span class="hljs-string">'https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=test&amp;weeks=3'</span>)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{<span class="hljs-keyword">return</span> response.json()})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">myJson</span>) </span>{<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(myJson))});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extracting-as-a-human-using-a-browser"></a><a href="#extracting-as-a-human-using-a-browser" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extracting as a human using a browser</h3>
+<p><a href="https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=">https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=</a><YOUR EXPERIMENT ID>&amp;weeks=&lt;NUMBER_OF_WEEKS&gt;&amp;user-id=&lt;USER-ID(OPTIONAL)&gt;</p>
+<p>for example. For Experiment-ID = test, User-ID = Vivid Vervet, and the last 30 weeks of data:</p>
+<p><a href="https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=besh&amp;weeks=30&amp;user-id=test05">https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=besh&amp;weeks=30&amp;user-id=test05</a></p>
+<h3><a class="anchor" aria-hidden="true" id="other-crowdsourced-examples-of-extracting-data-from-the-cozie-app"></a><a href="#other-crowdsourced-examples-of-extracting-data-from-the-cozie-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other crowdsourced examples of extracting data from the Cozie app</h3>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/Cozie/docs/installing-watchface"><span class="arrow-prev">← </span><span>Installing and using Cozie Basic</span></a><a class="docs-next button" href="/Cozie/docs/troubleshooting-cozie-basic"><span>Troubleshooting Cozie Basic</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#extracting-data">Extracting Data</a><ul class="toc-headings"><li><a href="#extracting-data-with-python">Extracting Data with Python</a></li><li><a href="#extracting-data-with-bash">Extracting Data with Bash</a></li><li><a href="#extracting-data-with-node-js">Extracting Data with Node js</a></li><li><a href="#extracting-as-a-human-using-a-browser">Extracting as a human using a browser</a></li><li><a href="#other-crowdsourced-examples-of-extracting-data-from-the-cozie-app">Other crowdsourced examples of extracting data from the Cozie app</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><div class="text-align-center"><a target="_blank" rel="noopener noreferrer" href="https://www.budslab.org/">Website</a></div><div class="text-align-center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/buds-lab">Github</a></div><div class="text-align-center"><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/buds_lab">Twitter</a></div></section><section class="copyright">Copyright © 2020 BUDS-Lab, National University of Singapore</section></footer></div></body></html>
