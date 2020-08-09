@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151445384-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+
+		gtag('config', 'UA-151445384-1');
+	</script>
+
+
+  <!-- Basic Page Needs
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<meta charset="utf-8">
+  	<title>Cozie</title>
+  	<meta name="description" content="">
+  	<meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+
+  <!-- CSS
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+	  <link rel="stylesheet" href="css/custom.css"/>
+
+  <!-- JS
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<script src="js/client.js?1500"></script>
+
+  <!-- Favicon
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<link rel="icon" type="image/png" href="img/favicon.ico">
+
+  </head>
+  <body >
+
+  <!-- Primary Page Layout
+  	–––––––––––––––––––––––––––––––––––––––––––––––––– mt4 mt5-m mt7-l -->
+
+  	<header class="sans-serif">
+  		<div class="bg-left bg-center-l">
+  			<div class="bg-dark-gray pb5 pb6-m pb7-l cover-fix">
+  				<nav class="dt w-100 mw8 center"> 
+				  </nav> 
+				  <div class = "flex-ns items-center cf center-horizontal ph3 v-mid center">
+				  	<div class="fl ph4 tc tl-ns">
+				  		<h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Introducing cozie</h1>
+				  		<h2 class="fw1 f3 white-80 mt3 mb4">A fitbit platform for human comfort data collection</h2>
+				  		<a class="f6 no-underline grow dib v-mid white ba b--white ph3 pv2 mb3" rel="noopener noreferrer" target="_blank" href="https://gallery.fitbit.com/details/512ce6c5-f633-4f7b-853c-891869f5e3d8">Download</a>
+				  	</div>
+				  	<div class="fl mw6 ph5">
+				  		<img src="img/home.png"> 
+				  	</div>
+  				</div>
+			</div>
+		</div> 
+	</header>
+
+<section class="sans-serif bg-white black ">
+	<div class="fl w-100 ph3 bg-white black pa3 tc">
+		<div class="fl ph5 mw6">
+			<img class="mw5" src="img/iphone.png"> 
+		</div>
+		<div class = "flex-ns items-center cf mt4 mt5-m mt6-l ph3 v-mid center">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 lh-title">Tailor your experiment via the fitbit mobile app</h1>
+				<h2 class="fw1 f3 black-80 mt3 mb4">and design your flow</h2>
+
+				<img src="img/flow.png"> 
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="sans-serif">
+
+	<div class = "fl w-100 ph3 pa3 pv6-l white bg-dark-gray">
+		<div class="ph4 f2 f2-l fw2 mb3 mt4 mt0-ns pt3">Query your data programatically 
+		</div>
+		<div class= "w-100 ph4 " >
+			<div class="ttu tracked bb bw1 b--black-10 dib pb2">
+				<a id ="python-tab" class="tablinks bg-animate bg-black hover-bg-black hover-white dib link pa1 white" onclick="selectTab(event, 'python')">python</a>
+				<a class="tablinks bg-animate bg-white hover-bg-black hover-white dib link pa1 black" onclick="selectTab(event, 'javascript')">js</a>
+				<a class="tablinks bg-animate bg-white hover-bg-black hover-white dib link pa1 black" onclick="selectTab(event, 'bash')">bash</a>
+				<a class="tablinks bg-animate bg-white hover-bg-black hover-white dib link pa1 black mt1" onclick="selectTab(event, 'human')">I'm Human</a>
+			</div>
+
+			<div id="python" class="tabcontent">
+
+				<code>
+					import requests
+				</code> </br></br>
+				<code>
+					payload = {'experiment-id': 'debug', 'weeks': '30', 'user-id': 'Vivid Vervet'}
+				</code></br>
+				<code>
+					response = requests.get('https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/', params = payload)
+				</code></br></br>
+				<code>
+					print(response.content)
+				</code>
+
+			</div>
+
+			<div id="javascript" class="tabcontent" style="display: none">
+								<code>
+					// You could also use the numerous nodejs GET methods
+				</code> </br></br>
+				<code>
+					
+					fetch('https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=debug&weeks=3')  
+				</code> </br>
+				<code>
+					.then(function(response) {return response.json()})
+				</code> </br>
+
+				<code>
+					.then(function(myJson) {console.log(JSON.stringify(myJson))});
+				</code>
+
+			</div>
+
+			<div id="bash" class="tabcontent" style="display: none">
+				<code>
+					$ curl https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=debug&weeks=3
+				</code>
+			</div>
+
+			<div id="human" class="tabcontent" style="display: none">
+				<code>
+					Type this url in the browser
+			
+
+				</code> </br></br>
+				<code>
+					https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id={YOUR EXPERIMENT ID}&weeks={NUMBER_OF_WEEKS}&user-id={USER-ID(OPTIONAL)}
+
+
+				</code> </br></br>
+								<code>
+					for example. For experiment-id = debug, user-id = debug, and the last 30 weeks of data:
+
+
+				</code> </br></br>
+				<code>
+
+					https://ay1bwnlt74.execute-api.us-east-1.amazonaws.com/test/request/?experiment-id=debug&weeks=30&user-id=debug
+
+
+				</code> </br></br>
+
+			</div>
+		</div>
+
+		<div class = "pa4">
+			<a class="f6 no-underline grow dib v-mid bg-blue white ba b--blue ph3 pv2 mb3" href="/docs/home">Full Documentation</a>
+			<a class="f6 no-underline grow dib v-mid white ba b--white ph3 ml2-l pv2 mb3" href="https://github.com/buds-lab/cozie-examples">Example Scripts</a>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="sans-serif bg-white black relative">
+	<div class="fl w-100 ph3 bg-white black pa3 pv6-l">
+
+		<div class = "fl flex-ns w-50 items-center cf ph3 v-mid br">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 pb2">Free to use </h1>
+
+				<h2 class="fw1 f4 black-80 mb1">public database</h2>
+				<h2 class="fw1 f4 black-80 mb1">full functionality</h2>
+
+				<div class = "pa4">
+			<a class="f6 no-underline grow dib v-mid bg-blue white ba b--blue ph3 pv2 mb3" target="_blank" href="https://gam.fitbit.com/gallery/clock/d787c911-ce11-432e-8b68-69da0f3446c8">Download</a>
+			<a class="f6 no-underline grow dib v-mid black ba b--blue ph3 ml2-l pv2 mb3" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfOAlQmWO8MJUtYnpmwKm3R0wu0gnr46lsShHqkkIRGOgF8-w/viewform?usp=sf_link">Contact us</a>
+		</div>
+
+			</div>
+		</div>
+
+		<div class = "fl flex-ns w-50 items-center cf ph3 v-mid">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 pb2">Go Pro </h1>
+				<h2 class="fw1 f4 black-80 mb1">private database</h2>
+				<h2 class="fw1 f4 black-80 mb1">customised questions</h2>
+
+				<div class="pa4 ">
+					<a class="f6 no-underline grow dib v-mid bg-blue white ba b--blue ph3 pv2 mb3"
+					   href="https://docs.google.com/forms/d/e/1FAIpQLSfOAlQmWO8MJUtYnpmwKm3R0wu0gnr46lsShHqkkIRGOgF8-w/viewform?usp=sf_link" target="_blank">Request Quote</a>
+
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</section>
+
+<section class="sans-serif bg-dark-gray white ">
+	<div class="fl w-100 ph1 bg-dark-gray white pa3 pv6-l">
+		<div class = "flex-ns items-center cf ph3 center">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 ">Example Projects </h1>
+				<ul class="list pl0">
+
+					<li class="pa3 pa4-ns bb b--black-10">
+						<a href="https://www.researchgate.net/publication/334317152_Is_your_clock-face_cozie_A_smartwatch_methodology_for_the_in-situ_collection_of_occupant_comfort_data" target="_blank" class="db white link dim f3 mb1">Indoor Comfort Study in Singapore</a>
+						<span class="f5 db lh-copy measure">
+						In this study fifteen users were given a smartwatch for one month and were prompted to give feedback on their thermal preferences. The data revealed a range of results from building anomalies, occupant behaviour, occupant personality clustering, and general feedback related to the building.</span>
+					</li>
+
+				</ul>
+
+
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section class="sans-serif bg-white black ">
+	<div class="fl w-100 ph1 bg-white black pa3 pt6-l">
+		<div class = "flex-ns items-center cf ph3 center">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 ">Designed with love by: </h1>
+				<h2 class="fw1 f3 black-80 mt3 mb4"></h2>
+			</div>
+			<div class="tc pa4">
+				<img src="img/pjjayasthissa.jpeg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div><a href="https://www.linkedin.com/in/pjayathissa/" style="text-decoration: none; color: black">Prageeth Jayathissa</a></div>
+				<div class = "fw3"> Lead Developer </div>
+			</div>
+			<div class="tc pa2 pa4-l">
+				<img src="img/federico.jpg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div><a href="https://www.linkedin.com/in/federico-tartarini-3991995b/" style="text-decoration: none; color: black">Federico Tartarini </a></div>
+				<div class="fw3">Developer and UI design</div>
+			</div>
+			<div class="tc pa2 pa4-l">
+				<img src="img/kairat.jpeg" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div>Kairat Talantbekov</div>
+				<div class = "fw3"> Front End </div>
+			</div>
+			<div class="tc pa2 pa4-l">
+				<img src="img/matiasquintana.png" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div><a href="https://www.linkedin.com/in/matiasqr/" style="text-decoration: none; color: black">Matias Quintana</a></div>
+				<div class = "fw3"> Back End </div>
+			</div>
+			<div class="tc pa2 pa4-l">
+				<img src="img/tapeesh.png" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div><a href="https://www.linkedin.com/in/tapeeshsood/" style="text-decoration: none; color: black">Tapeesh Sood</a></div>
+				<div class = "fw3"> UI Design </div>
+			</div>
+			<div class="tc pa2 pa4-l">
+				<img src="img/clayton.png" class="br-100 pa1 ba b--black-10 h3 w3" alt="avatar">
+				<div><a href="https://www.linkedin.com/in/claytonmiller/" style="text-decoration: none; color: black">Clayton Miller</a></div>
+				<div class = "fw3"> Project Coordinator </div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section class="sans-serif bg-white black ">
+	<div class="fl w-100 ph1 bg-white black">
+		<div class = "flex-ns items-center cf ph3 center">
+			<div class="fl ph4 tc tl-ns">
+				<h1 class="f2 f2-l fw2 mb0 "></h1>
+				<h2 class="fw1 f3 black-80 mt3 mb4"></h2>
+				  <a class="no-underline near-white bg-animate bg-black-80 hover-bg-gray inline-flex items-center tc br2 pa2" target="_blank" href="https://github.com/buds-lab/cozie-examples/issues" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+    <span class="f6 ml3 pr2">Request Features</span>
+  </a>
+  <a class="no-underline near-white bg-animate bg-black-80 hover-bg-gray inline-flex items-center ma2 tc br2 pa2" target="_blank" href="https://github.com/buds-lab/cozie-examples/issues" title="GitHub">
+    <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+    <span class="f6 ml3 pr2">Submit Issues</span>
+  </a>
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<section class="sans-serif bg-dark-gray white ">
+	<div class="fl w-100 ph1 bg-dark-gray white pa2">
+		<div class = "flex-ns items-center cf ph3 center">
+			<div class="fl ph4 tc tl-ns">
+				<small class="f6 db tc">© 2019 <b class="ttu">budslab, National University of Singapore</b></small>
+
+
+
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+<!-- End Document
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
